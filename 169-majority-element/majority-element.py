@@ -1,12 +1,13 @@
 import math
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        n=len(nums)/2
-        val=math.ceil(n)
-        hashMap={}
+        count={}
+        res=0
+        maxcount=0
+        n=len(nums)//2
         for num in nums:
-            hashMap[num]=hashMap.get(num,0)+1
-            if hashMap[num]==val:
-                return num
-        return False
+            count[num]=count.get(num,0)+1
+            res=num if count[num]>maxcount else res
+            maxcount=max(maxcount,count[num])
+        return res
         
