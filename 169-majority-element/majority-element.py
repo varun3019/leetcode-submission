@@ -1,13 +1,14 @@
-import math
 class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
-        count={}
-        res=0
-        maxcount=0
-        n=len(nums)//2
-        for num in nums:
-            count[num]=count.get(num,0)+1
-            res=num if count[num]>maxcount else res
-            maxcount=max(maxcount,count[num])
-        return res
+    def majorityElement(self, nums: list[int]) -> int:
+        l=len(nums)
+        majority=l/2
+        hashset={}
+        for n in nums:
+            hashset[n]=hashset.get(n,0)+1
+            if hashset.get(n)>majority:
+                return n
+        
+        
+        
+        
         
