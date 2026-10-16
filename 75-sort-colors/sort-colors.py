@@ -3,10 +3,12 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        n=len(nums)
-        for i in range(n):
-            for j in range(n-1-i):
-                if nums[j]>nums[j+1]:
-                    nums[j],nums[j+1]=nums[j+1],nums[j]
+        counts=[0,0,0]
+        for color in nums:
+            counts[color]+=1
+        R,W,B=counts
+        nums[:R]=[0]*R
+        nums[R:R+W]=[1]*W
+        nums[R+W:]=[2]*B
         return nums
         
