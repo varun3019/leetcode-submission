@@ -3,22 +3,18 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        i=0
-        j=0
-        newarr=[]
-        while(i<m and j<n):
-            if(nums1[i]<nums2[j]):
-                newarr.append(nums1[i])
-                i+=1
+        x,y=m-1,n-1
+        for z in range(m+n-1,-1,-1):
+            if x<0:
+                nums1[z]=nums2[y]
+                y-=1
+            elif y<0:
+                break
+            elif nums1[x]>nums2[y]:
+                nums1[z]=nums1[x]
+                x-=1
             else:
-                newarr.append(nums2[j])
-                j+=1
-        while(i<m):
-            newarr.append(nums1[i])
-            i+=1
-        while(j<n):
-            newarr.append(nums2[j])
-            j+=1
-        nums1[:]=newarr
-        
+                nums1[z]=nums2[y]
+                y-=1
+
         
