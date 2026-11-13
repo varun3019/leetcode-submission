@@ -3,15 +3,11 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        zeroarr=[]
-        nonzeroarr=[]
-        for num in nums:
-            if num==0:
-                zeroarr.append(num)
-            else:
-                nonzeroarr.append(num)
-        nums[:]=nonzeroarr + zeroarr
-        return nums
-
+        n=len(nums)
+        l=0
+        for r in range(len(nums)):
+            if nums[r]:
+                nums[l],nums[r]=nums[r],nums[l]
+                l+=1
 
         
